@@ -1,0 +1,19 @@
+{
+  "name": "mongo-transduction",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node index.js",
+    "test": "DEBUG=transduce ./node_modules/.bin/mocha src/transduce.spec.js",
+    "start": "./node_modules/.bin/nodemon --exec 'npm run test'"
+  },
+  "dependencies": {
+    "funprog": "^1.1.0",
+    "mocha": "^5.2.0",
+    "mongo-in-memory": "0.0.5",
+    "mongodb": "^3.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  }
+}
