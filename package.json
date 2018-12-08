@@ -8,7 +8,7 @@
     "start": "./node_modules/.bin/nodemon --exec 'npm run test'"
   },
   "dependencies": {
-    "funprog": "^1.1.0",
+    "funprog": "^1.2.0",
     "mocha": "^5.2.0",
     "mongo-in-memory": "0.0.5",
     "mongodb": "^3.0.6"

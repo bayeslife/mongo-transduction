@@ -15,10 +15,12 @@ module.exports={
         
         return {
             setCollection(collectionName){
+                debug(`setCollection: ${collection}`)
                 db = client.db(database)
                 collection =  db.collection(collectionName);
             },
             query: async function() {
+                debug("query")
                 var results = await collection.find({})
                 return results
             },
