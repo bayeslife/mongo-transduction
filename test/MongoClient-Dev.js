@@ -4,13 +4,19 @@ module.exports = {
 
   create: async function(database, collection, documents ){
 
-    debug(`mongodb://${mongoServerInstance.host}:${mongoServerInstance.port}`)
+    function noop(){
+    }
 
-    return {
+    var config = {
       host: "10.8.161.147",
       port: 27017,
       database: "coates",
-      collection: "measurement" 
+      collection: "measurement",
+      destroy: noop 
     }
+
+    debug(`mongodb://${config.host}:${config.port}`)
+
+    return config
   }
 }
