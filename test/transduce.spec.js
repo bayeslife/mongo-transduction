@@ -1,16 +1,15 @@
 const debug = require('debug')('transduce')
 
-
-const mongoFactory = require('../test/MongoClient-Mock.js')
-//const mongoFactory = require('../test/MongoClient-Dev.js')
-const mockMeasurements = require('../test/mockMeasurement');
+const mongoFactory = require('./MongoClient-Mock.js')
+//const mongoFactory = require('./MongoClient-Dev.js')
+const mockMeasurements = require('./mockMeasurement');
 
 const { transduceAsyncHasNextIterator, mapping, compose,filtering,take} = require('funprog')
 
 const assert = require('assert')
 
 const mongoClient = require('mongodb').MongoClient
-const clientFactory = require('./client.js')
+const clientFactory = require('../src/client.js')
 
 const identity = x => x
 const assetP = id =>  
@@ -55,23 +54,20 @@ describe('Given a mongo instance populated with test data', function(){
         })
     })
 
-        describe('When we query measurements a datasource is returned from which we can iterate using for await of', () => { 
-            var datasource
-            before(async () => {
-            })
-            it('Then', async () => {
-                datasource = await client.query()
-                var i = 0
-                for await (const n of datasource){
-                    debug(n)
-                    if(i++>3) break;
-                }
-            })
+    describe('When we query measurements a datasource is returned from which we can iterate using for await of', () => { 
+        var datasource
+        it('Then', async () => {
+            datasource = await client.query()
+            var i = 0
+            for await (const n of datasource){
+                debug(n)
+            }
         })
+    })
 
     describe('When we query measurements a datasource is returned from which we can asynchronously retrieve results', () => {
         
-        describe.only('Then we are able to transduce measurements successfully into an array', () => { 
+        describe('Then we are able to transduce measurements successfully into an array', () => { 
             var datasource
             before(async () => {
                 datasource = await client.query()
@@ -94,7 +90,7 @@ describe('Given a mongo instance populated with test data', function(){
                 datasource = await client.query()
             }) 
             var datasink = ""
-            it.only('Then', async () => {
+            it('Then', async () => {
                 const transform = compose(
                     mapping(identity),
                     filtering(assetP(1)),

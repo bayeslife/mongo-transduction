@@ -4,16 +4,16 @@
   "main": "index.js",
   "scripts": {
     "serve": "node index.js",
-    "test": "DEBUG=transduce ./node_modules/.bin/mocha src/transduce.spec.js",
+    "test": "DEBUG=transduce,funprog ./node_modules/.bin/mocha test/*.spec.js",
     "start": "./node_modules/.bin/nodemon --exec 'npm run test'"
   },
   "dependencies": {
-    "funprog": "^1.2.0",
+    "funprog": "^1.6.3",
     "mocha": "^5.2.0",
     "mongo-in-memory": "0.0.5",
     "mongodb": "^3.0.6"
   },
   "devDependencies": {
-    "nodemon": "^1.18.7"
+    "nodemon": "^1.18.9"
   }
 }

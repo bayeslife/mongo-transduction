@@ -2,7 +2,8 @@
 
     getMeasurements: () => {
 
-        return [ {
+        return [ 
+        {
             AssetId: 1,
             Epoch: 1000,
             Value: 1,
@@ -43,7 +44,8 @@
             Value: 0,
             DefinitionId: 1,
             DeviceId: 1
-        }]
+        }
+        ]
     }
 };
 
